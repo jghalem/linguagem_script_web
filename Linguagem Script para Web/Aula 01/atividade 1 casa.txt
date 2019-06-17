@@ -1,0 +1,4 @@
+Tratar 3 eventos:
+
+hover imagem lampada = lampada acende, se tirar o mouse de cima deve apagar
+clique imagem lampada = lampada quebra

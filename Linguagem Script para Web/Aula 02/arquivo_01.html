@@ -1,0 +1,18 @@
+<img src="lampoff.png" alt="Lâmpada" id="lampada">
+
+<script>
+
+    /*document.getElementById("lampada").addEventListener("click", function(){
+    document.getElementById("lampada").src = "lampbroken.png";
+    });*/
+
+    document.getElementById("lampada").addEventListener("click", (lampada) => {
+        document.getElementById("lampada")/*lampada*/.src = "lampbroken.png";});
+
+    document.getElementById("lampada").addEventListener("mouseenter", (lampada) => {
+        document.getElementById("lampada")/*lampada*/.src = "lampon.png";});
+
+    document.getElementById("lampada").addEventListener("mouseout",function(lampada){
+        document.getElementById("lampada")/*lampada*/.src = "lampoff.png";});
+
+</script>

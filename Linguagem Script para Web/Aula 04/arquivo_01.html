@@ -1,0 +1,26 @@
+<meta charset="utf-8">
+<input type="text" id="senha">
+<button id="botao"></button>
+
+<script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous">
+</script>
+
+<script>
+    $(document).ready(function(){
+        $('button').text('<o>');
+        $('#senha').val('tag alterada!');
+        $('#senha').attr('type','password');
+        
+        $('#botao').click(function(){
+            if ($('#senha').attr('type') == 'password'){
+                $('#senha').attr('type','text');
+            } else {
+                $('#senha').attr('type','password');
+            }
+        });
+    });
+</script>
+

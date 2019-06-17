@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<fieldset class="col-6 offset-3">
+    <legend>Dados Funcionario</legend>
+    <form action="#" id="form">
+        <div class="form-group">
+            <label for="idnome">Nome:</label>
+            <input class="form-control" type="text" name="nome" id="idnome">
+        </div>
+        <div class="form-group">
+            <label for="idemail">Email:</label>
+            <input class="form-control" type="text" name="email" id="idemail">
+        </div>
+        <div class="form-group">
+            <label for="idtelefone">Telefone:</label>
+            <input class="form-control" type="text" name="telefone" id="idtelefone">
+        </div>
+        <div class="form-group">
+            <label for="idsalario">Salario:</label>
+            <input class="form-control" type="text" name="salario" id="idsalario">
+        </div>
+        <div>
+            <button class="btn btn-dark" id="botao" type="submit">Enviar</button>
+        </div>
+    </form>
+</fieldset>
+
+<script>
+    var salario = document.querySelectorAll("input")[3];
+    
+    salario.onchange = () => {
+
+        const regex = new RegExp(/R\$ \d[0-9]{3},\d[0-9]{2}/g);
+        console.log();
+        
+        const valor = regex.exec(parseFloat(salario.value));
+        let result = regex.exec(valor);
+        console.log(regex.exec(valor));
+        salario.value = result;
+        console.log(result)
+
+        /*const formatado = parseFloat(salario.value.replace("R$ ","").replace(".","").replace(",","")).toLocaleString("pt-BR", {style: 'currency', currency: 'BRL'});
+        salario.value = formatado;*/
+
+        //utilizar regex (expressão regular) no lugar do replace
+
+    }
+</script>

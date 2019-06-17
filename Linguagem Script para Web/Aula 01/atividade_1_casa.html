@@ -1,0 +1,39 @@
+<!--
+Tratar 3 eventos:
+onhover imagem lampada = lampada acende, se tirar o mouse de cima deve apagar
+onclick imagem lampada = lampada quebra
+-->
+
+<p name="par" style="text-align: center">
+    Atividade 1 - Linguagem Script para Web<br>
+    <img src="lampoff.png" alt="Lâmpada" id="img" onclick="lampBroken()" onmouseover="lampOn()" onmouseout="lampOff()">
+    <p id="botao" style="text-align: center"></p>
+</p>
+
+<script>
+
+    var imagem = document.getElementById("img");
+    var check = 0;
+
+    function lampOn() {
+        if (imagem.src.match("off")) {
+            imagem.src = "lampon.png";
+        }
+    }
+
+    function lampOff() {
+        if (imagem.src.match("on")) {
+            imagem.src = "lampoff.png";
+        }
+    }
+
+    function reload() {
+        document.location.reload(true)
+    }
+
+    function lampBroken() {
+        imagem.src = "lampbroken.png";
+        document.getElementById("botao").innerHTML = `</br>Cuidado com a mão, você quebrou a lâmpada! Clique <a href="#" onclick="reload()">aqui</a> para trocá-la`;
+    }
+
+</script>

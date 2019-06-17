@@ -1,0 +1,27 @@
+<p id="tag1" onclick="quandoClicar()"  onmousewheel="quandoRodarScroll()">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id est non quam venenatis feugiat. Cras rhoncus laoreet urna, a tincidunt mi aliquet et. Suspendisse dictum sed dolor sed imperdiet. Fusce in fringilla nibh, eget facilisis magna. Donec a mauris id odio ornare rutrum et vitae elit. Morbi dictum rutrum laoreet. Donec a nisi lectus. Fusce a tristique magna.
+Quisque vestibulum sem at turpis ultrices placerat. Maecenas pulvinar nibh in neque faucibus facilisis. Suspendisse at blandit nibh. Nunc enim dolor, condimentum in malesuada eget, suscipit ac quam. In iaculis felis nec risus vehicula volutpat. Aliquam ultrices urna vitae metus ultricies, et aliquam libero efficitur. Vestibulum ornare risus ut iaculis faucibus. Etiam aliquet magna ac mi volutpat, semper efficitur nibh iaculis.
+</p>
+
+<script>
+var tag = document.getElementById("tag1");
+
+function quandoClicar(){
+    if (tag.style.fontStyle == "italic"){
+    tag.style.fontStyle = "normal";
+    } else {
+        tag.style.fontStyle = "italic";
+    }
+}
+
+function quandoRodarScroll(){
+    let color = tag.style.color;
+    if(color != "red") {
+        tag.style.color = "red";
+    }
+ else {
+    tag.style.color = "green";
+ }
+}
+
+</script>

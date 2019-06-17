@@ -1,0 +1,33 @@
+<meta charset="utf-8">
+
+<script>
+    var alunos = [
+        "João", "Patrick", "Anderson", "Wagner", "Jocimar", "Rafael", "Giullyan", "Yuri", "Iego", "Marllon", "Matheus", "Larissa", "David"
+    ];
+
+    // [] = array
+    // {} = objeto
+
+    //adicionar e remover do fim
+    alunos.push("kkkk pegadinha");
+    alunos.pop();
+    //adicionar e remover do inicio
+    alunos.unshift("aaa");
+    alunos.shift();
+    //adicionar e substituir elemento em posição específica
+    alunos.splice(7,0,"Fulano da Silva");
+    alunos.splice(7,1,"Fulano de Souza");
+    //localizar e remover elemento a partir do índice
+    var pos = alunos.indexOf("David");
+    alunos.splice(pos,1);
+
+    alunos.sort();
+    alunos.reverse();
+    alunos.splice(2,1,"Terceira posição");
+    //atividade: imprimir array ao contrário e substituir o terceiro elemento da posição.
+
+    for(i = 0; i < alunos.length; i++) {
+        console.log(alunos[i] + "\n");
+    }
+
+</script>

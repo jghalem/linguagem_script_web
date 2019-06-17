@@ -1,0 +1,81 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<fieldset class="col-6 offset-3">
+    <legend>Correios Consulta CEP</legend>
+    <form action="#" id="form">
+        <div class="form-group">
+            <label for="idcep">CEP:</label>
+            <input class="form-control" type="text" name="cep" id="idcep" placeholder="00000-000">
+        </div>
+        <div class="form-group">
+            <label for="idlogradouro">Endereço:</label>
+            <input class="form-control" type="text" name="logradouro" id="idlogradouro" disabled placeholder="Endereço">
+        </div>
+        <div class="form-group">
+            <label for="idbairro">Bairro:</label>
+            <input class="form-control" type="text" name="bairro" id="idbairro" disabled placeholder="Bairro">
+        </div>
+        <div class="form-group">
+            <label for="idcidade">Cidade:</label>
+            <input class="form-control" type="text" name="cidade" id="idcidade" disabled placeholder="Cidade">
+        </div>
+        <div class="form-group">
+            <label for="idestado">Estado:</label>
+            <input class="form-control" type="text" name="estado" id="idestado" disabled placeholder="Estado">
+        </div>
+        <div class="form-group">
+            <label for="idestado">Número:</label>
+            <input class="form-control" type="text" name="numero" id="idnumero" placeholder="Número 103">
+        </div>
+        <div class="form-group">
+            <label for="idcomplemento">Complemento:</label>
+            <input class="form-control" type="text" name="complemento" id="idcomplemento"
+                placeholder="Casa 1, Apto 203..">
+        </div>
+        <div>
+            <button class="btn btn-dark" id="botao" type="submit">Enviar</button>
+        </div>
+    </form>
+</fieldset>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"
+    integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#idcep').change(function () {
+            var cep = $(this).val().replace(/\D/, '');
+            const filtro = /^\d{8}$/;
+            const testing = new RegExp();
+            var tested = filtro.test(cep);
+
+            if (tested == true) {
+                // verificar usando regex o tamanho do cep, lembrando que um cep contem 8 digitos
+                var url = `https://viacep.com.br/ws/${cep}/json/`;
+                $.getJSON(url, function (json) {
+                    $('#idlogradouro').val(json.logradouro);
+                    $('#idbairro').val(json.bairro);
+                    $('#idcidade').val(json.localidade);
+                    $('#idestado').val(json.uf);
+                    $('#idcomplemento').val(json.complemento);
+                });
+                if (json() != '')
+
+                $("#logradouro").val("...");
+                $("#bairro").val("...");
+                $("#cidade").val("...");
+                $("#estado").val("...");
+                $("#complemento").val("...");
+
+            } else {
+                alert('cep invalido');
+                $('#idcep').val('');
+                $('#idcep').focus();
+            }
+        });
+        $('#idnumero').change(function () {
+            var numero = $(this).val().replace(/\D/, '');
+            $('#idnumero').val(numero);
+        });
+
+    });
+</script>
